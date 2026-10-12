@@ -144,10 +144,16 @@
 
 /* Subtle series motifs */
 .background-details { position: fixed; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
-.background-details::before, .background-details::after { position: absolute; color: var(--pink); font-family: Georgia, serif; line-height: 1; opacity: .055; }
-.background-details::before { content: "୨ৎ  ♡"; top: 18%; right: -22px; font-size: clamp(4rem, 13vw, 10rem); transform: rotate(14deg); }
-.background-details::after { content: "♡ ୨ৎ"; bottom: 9%; left: -32px; font-size: clamp(3.5rem, 10vw, 8rem); transform: rotate(-12deg); }
+.decoration-art { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--pink); opacity: .25; }
+.horror-art { display: none; }
+.deco { vector-effect: non-scaling-stroke; }
 header, main, footer { position: relative; z-index: 2; }
+.horror-control { padding: 30px 0; text-align: center; border-top: 1px solid var(--line); }
+.horror-toggle { border: 2px solid var(--red); padding: 13px 22px; background: var(--red); color: #fff; font: inherit; font-weight: 850; letter-spacing: .04em; cursor: pointer; transition: transform .18s ease, background-color .18s ease; }
+.horror-toggle:hover, .horror-toggle:focus-visible { transform: translateY(-2px); background: var(--pink); color: var(--ink); }
+.icon-toggle { display: inline-grid; width: 54px; height: 50px; place-items: center; padding: 0; border-radius: 3px; }
+.mode-symbol { display: block; width: 19px; height: 19px; border: 2px solid currentColor; border-radius: 50%; background: linear-gradient(90deg, currentColor 0 48%, transparent 50%); box-shadow: 0 0 0 3px rgba(255,255,255,.16); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 .character-intro { margin-top: 12px !important; }
 .character-more { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--muted); font-size: .9rem; }
 .character-more summary { color: var(--pink); font-weight: 750; cursor: pointer; }
@@ -167,6 +173,23 @@ header, main, footer { position: relative; z-index: 2; }
 footer a { color: var(--pink); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 @media (max-width: 760px) { .gallery-grid { grid-template-columns: 1fr; } .fanart-placeholder { min-height: 220px; } .hero-actions { align-items: stretch; flex-direction: column; } .hero-actions .button { width: 100%; text-align: center; } }
+
+/* Optional horror palette */
+:root[data-horror="true"] { color-scheme: dark; --ink: #030303; --panel: #090707; --paper: #ff3038; --muted: #df343b; --pink: #ff2028; --red: #c90012; --line: rgba(255, 25, 35, .62); }
+:root[data-horror="true"] body { background: #030303; color: #ff3038; }
+:root[data-horror="true"] section, :root[data-horror="true"] .horror-control { background-color: #030303; }
+:root[data-horror="true"] .hero { background: radial-gradient(ellipse at 76% 44%, rgba(190,0,15,.2), transparent 38%), #030303; }
+:root[data-horror="true"] .hero::after { border-color: rgba(255,25,35,.6); box-shadow: 0 0 0 28px rgba(255,20,30,.07), 0 0 0 56px rgba(255,20,30,.035); }
+:root[data-horror="true"] .placeholder, :root[data-horror="true"] .month, :root[data-horror="true"] .card, :root[data-horror="true"] .credit, :root[data-horror="true"] .fanart-card { background-color: #090707; border-color: var(--line); }
+:root[data-horror="true"] .placeholder { background-image: linear-gradient(135deg, rgba(200,0,15,.16), rgba(0,0,0,.3)); }
+:root[data-horror="true"] .portrait, :root[data-horror="true"] .fanart-placeholder { color: #ff3038; background: radial-gradient(circle at 50% 50%, rgba(150,0,12,.2), transparent 45%), #050505; }
+:root[data-horror="true"] .theme-toggle, :root[data-horror="true"] .button, :root[data-horror="true"] .button-fanart { color: #ff3038; border-color: #ff2028; background: #050505; }
+:root[data-horror="true"] .horror-toggle { color: #ff3038; border-color: transparent; background: transparent; }
+:root[data-horror="true"] .button:hover, :root[data-horror="true"] .button-fanart:hover { color: #050505; background: #ff2028; }
+:root[data-horror="true"] .background-details .cute-art { display: none; }
+:root[data-horror="true"] .background-details .horror-art { display: initial; }
+:root[data-horror="true"] .decoration-art { color: #ff2028; opacity: .28; }
+:root[data-horror="true"] .mode-symbol { color: #ff2028; box-shadow: 0 0 12px rgba(255,32,40,.7); }
 
 
 
