@@ -124,7 +124,6 @@
 
 
 @media (prefers-color-scheme: light) {
-:root:not([data-theme]) {
 :root:not([data-theme]) body { background: var(--ink); color: var(--paper); }
 :root:not([data-theme]) .hero { background: radial-gradient(ellipse at 76% 44%, rgba(237,49,88,.18), transparent 35%), linear-gradient(130deg, #fff8fa 35%, #f8dce7 100%); }
 :root:not([data-theme]) .hero::after { border-color: rgba(191,40,88,.3); box-shadow: 0 0 0 28px rgba(191,40,88,.04), 0 0 0 56px rgba(191,40,88,.025); }
@@ -141,7 +140,7 @@
 /* Official series logo */
 .brand { min-width: 130px; }
 .brand img { display: block; width: 130px; height: 64px; object-fit: contain; }
-.hero-logo { display: block; width: min(520px, 82vw); height: auto; margin: 20px 0 25px; padding: 12px 18px; background: rgba(255, 248, 250, .94); border-radius: 4px; }
+.hero-logo { display: block; width: min(520px, 82vw); height: auto; margin: 20px 0 25px; padding: 0; background: transparent; border-radius: 0; filter: drop-shadow(0 2px 8px rgba(255, 139, 182, .16)); }
 
 
 
