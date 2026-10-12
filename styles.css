@@ -145,3 +145,25 @@
 
 
 
+
+/* Mobile layout fixes */
+@media (max-width: 900px) {
+  header { position: relative; background: var(--ink); }
+  nav.wrap { align-items: flex-start; flex-direction: column; gap: 12px; padding: 16px 0; }
+  .brand { min-width: 0; }
+  .nav-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; gap: 6px 10px; justify-content: stretch; }
+  .nav-links a { min-width: 0; text-align: center; font-size: .8rem; padding: 6px 0; white-space: nowrap; }
+  .theme-toggle { grid-column: 1 / -1; justify-self: start; padding: 7px 10px; font-size: .78rem; }
+  .hero { min-height: 0; padding: 58px 0 64px; }
+  .hero-content { min-width: 0; width: 100%; max-width: 100%; }
+  .hero-logo { width: min(100%, 480px); max-width: 100%; height: auto; padding: 8px 10px; margin: 14px 0 20px; }
+  .hero p { max-width: 100%; width: 100%; font-size: 1rem; line-height: 1.55; overflow-wrap: anywhere; }
+  .button { max-width: 100%; }
+  .wrap { width: min(var(--width), calc(100% - 32px)); }
+}
+@media (max-width: 520px) {
+  .nav-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav-links a { font-size: .76rem; }
+  .hero { padding-top: 42px; }
+  section { padding: 64px 0; }
+}
