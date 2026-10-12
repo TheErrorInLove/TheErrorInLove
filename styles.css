@@ -167,3 +167,14 @@
   .hero { padding-top: 42px; }
   section { padding: 64px 0; }
 }
+@media (max-width: 900px) {
+  nav.wrap { position: relative; min-height: 68px; }
+  .nav-links { display: block; position: absolute; top: 16px; right: 0; width: auto; }
+  .nav-links a { display: none; }
+  .theme-toggle { display: inline-block; padding: 7px 10px; font-size: .78rem; white-space: nowrap; }
+}
+@media (max-width: 520px) {
+  .brand { gap: 8px; font-size: .8rem; }
+  .brand-mark { width: 30px; font-size: 16px; }
+  .theme-toggle { padding: 6px 8px; font-size: .72rem; }
+}
