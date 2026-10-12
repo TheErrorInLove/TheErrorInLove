@@ -2,6 +2,10 @@
 :root { scroll-padding-top: 12px; }
 @media (max-width: 760px) {
   html, body { max-width: 100%; overflow-x: clip; }
+  /* Keep the hand-drawn cute / horror motifs visible on narrow screens. */
+  .background-details { z-index: 3; }
+  .decoration-art { opacity: .12; }
+  .deco { vector-effect: non-scaling-stroke; }
   .wrap { width: calc(100% - 36px); }
   header { position: relative; background: var(--ink); }
   nav.wrap { position: relative; min-height: 70px; padding: 13px 0; gap: 0; }
