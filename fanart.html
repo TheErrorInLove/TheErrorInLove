@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fan-created art inspired by The Error in Love.">
+  <title>Fan Art Gallery — The Error in Love</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <div class="background-details" aria-hidden="true"></div>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span><span>The Error in Love</span></a>
+      <div class="nav-links"><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">☀ Light mode</button><a href="index.html">Home</a><a href="index.html#characters">Characters</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrap hero-content">
+        <div class="eyebrow">Made by the fandom</div>
+        <h1>Fan Art <span>Gallery</span></h1>
+        <p>A separate little space for fan creations inspired by The Error in Love.</p>
+        <a class="button" href="index.html">Back to the series</a>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="section-head"><div><div class="eyebrow">Community creations</div><h2>Fan Art</h2></div><p class="gallery-intro">Gallery artwork and artist credits will be added here as placeholders are replaced.</p></div>
+        <div class="gallery-grid">
+          <article class="fanart-card"><div class="fanart-placeholder" role="img" aria-label="Placeholder for fan art">Artwork placeholder</div><div class="fanart-caption"><strong>Artwork title placeholder</strong>Artist name placeholder</div></article>
+          <article class="fanart-card"><div class="fanart-placeholder" role="img" aria-label="Placeholder for fan art">Artwork placeholder</div><div class="fanart-caption"><strong>Artwork title placeholder</strong>Artist name placeholder</div></article>
+          <article class="fanart-card"><div class="fanart-placeholder" role="img" aria-label="Placeholder for fan art">Artwork placeholder</div><div class="fanart-caption"><strong>Artwork title placeholder</strong>Artist name placeholder</div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap"><span>© <span id="year"></span> The Error in Love</span><a href="index.html">Return to the main site</a></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const themeButton = document.getElementById('theme-toggle');
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('eil-theme'); } catch (error) { /* Theme still works without browser storage. */ }
+    if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    function updateThemeButton() {
+      const explicitTheme = document.documentElement.dataset.theme;
+      const isLight = explicitTheme ? explicitTheme === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
+      themeButton.textContent = isLight ? '☾ Dark mode' : '☀ Light mode';
+      themeButton.setAttribute('aria-pressed', String(isLight));
+    }
+    updateThemeButton();
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => { if (!document.documentElement.dataset.theme) updateThemeButton(); });
+    themeButton.addEventListener('click', () => {
+      const explicitTheme = document.documentElement.dataset.theme;
+      const currentlyLight = explicitTheme ? explicitTheme === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
+      const isLight = !currentlyLight;
+      document.documentElement.dataset.theme = isLight ? 'light' : 'dark';
+      try { localStorage.setItem('eil-theme', isLight ? 'light' : 'dark'); } catch (error) { /* Keep theme selection for this page view. */ }
+      updateThemeButton();
+    });
+  </script>
+</body>
+</html>
