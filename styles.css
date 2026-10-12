@@ -158,6 +158,10 @@ header, main, footer { position: relative; z-index: 2; }
 .character-more { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; color: var(--muted); font-size: .9rem; }
 .character-more summary { color: var(--pink); font-weight: 750; cursor: pointer; }
 .character-more p { margin-top: 10px; }
+.character-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; margin: 12px 0 0; }
+.character-facts div { min-width: 0; }
+.character-facts dt { color: var(--pink); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.character-facts dd { margin: 1px 0 0; color: var(--paper); overflow-wrap: anywhere; }
 .gallery-intro { max-width: 720px; color: var(--muted); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 .hero-actions .button { margin-top: 20px; }
