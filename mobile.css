@@ -16,7 +16,6 @@
   .theme-toggle { min-height: 40px; padding: 6px 8px; font-size: .72rem; white-space: nowrap; }
 
   .hero { min-height: 0; padding: 46px 0 54px; }
-  .hero::after { width: 75vw; right: -38%; top: 47%; opacity: .36; }
   .hero-content { width: 100%; max-width: 100%; min-width: 0; text-align: center; }
   .hero-content .eyebrow { font-size: .66rem; letter-spacing: .16em; }
   .hero-logo { display: block; width: min(250px, 66vw); max-width: 100%; padding: 7px 9px; margin: 18px auto 21px; }
