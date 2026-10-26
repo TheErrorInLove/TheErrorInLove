@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Official artwork for The Error in Love.">
+  <title>Official Art — The Error in Love</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="The Error in Love home"><img src="the-error-in-love-logo.png" alt="The Error in Love"></a>
+      <div class="nav-links"><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">☀ Light mode</button><a href="index.html">Home</a><a href="fanart.html">Fan Art</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero"><div class="wrap hero-content"><div class="eyebrow">From the series team</div><h1>Official <span>Art</span></h1><p>Artwork and promotional visuals released by The Error in Love team.</p><div class="hero-actions"><a class="button" href="index.html">Back to the series</a><a class="button button-fanart" href="fanart.html">Browse Fan Art</a></div></div></section>
+    <section><div class="wrap"><div class="section-head"><div><div class="eyebrow">Official collection</div><h2>Artwork Gallery</h2></div><p class="gallery-intro">All official artwork goes in one gallery. Titles, credits, and display order can be changed as the collection grows.</p></div>
+      <div class="gallery-grid"><article class="fanart-card"><div class="fanart-placeholder" role="img" aria-label="Official artwork placeholder">Artwork placeholder</div><div class="fanart-caption"><strong>Artwork title placeholder</strong>Artist or credit placeholder</div></article><article class="fanart-card"><div class="fanart-placeholder" role="img" aria-label="Official artwork placeholder">Artwork placeholder</div><div class="fanart-caption"><strong>Artwork title placeholder</strong>Artist or credit placeholder</div></article><article class="fanart-card"><div class="fanart-placeholder" role="img" aria-label="Official artwork placeholder">Artwork placeholder</div><div class="fanart-caption"><strong>Artwork title placeholder</strong>Artist or credit placeholder</div></article></div>
+    </div></section>
+  </main>
+  <section class="horror-control" aria-label="Display mode"><div class="wrap"><button class="horror-toggle icon-toggle" id="horror-toggle" type="button" aria-label="Enter Horror Mode" aria-pressed="false" title="Enter Horror Mode"><span class="mode-symbol" aria-hidden="true"></span><span class="visually-hidden">Enter Horror Mode</span></button></div></section>
+  <footer><div class="wrap"><span>© <span id="year"></span> The Error in Love</span><a href="index.html">Main site</a><a href="fanart.html">Fan Art</a></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const themeButton = document.getElementById('theme-toggle');
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem('eil-theme'); } catch (error) { /* Theme still works without browser storage. */ }
+    if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+    function updateThemeButton() {
+      const explicitTheme = document.documentElement.dataset.theme;
+      const isLight = explicitTheme ? explicitTheme === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
+      themeButton.textContent = isLight ? '☾ Dark mode' : '☀ Light mode';
+      themeButton.setAttribute('aria-pressed', String(isLight));
+    }
+    updateThemeButton();
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => { if (!document.documentElement.dataset.theme) updateThemeButton(); });
+    themeButton.addEventListener('click', () => {
+      const explicitTheme = document.documentElement.dataset.theme;
+      const currentlyLight = explicitTheme ? explicitTheme === 'light' : window.matchMedia('(prefers-color-scheme: light)').matches;
+      const isLight = !currentlyLight;
+      document.documentElement.dataset.theme = isLight ? 'light' : 'dark';
+      try { localStorage.setItem('eil-theme', isLight ? 'light' : 'dark'); } catch (error) { /* Keep theme selection for this page view. */ }
+      updateThemeButton();
+    });
+    const horrorButton = document.getElementById('horror-toggle');
+    function updateHorrorButton() {
+      const active = document.documentElement.dataset.horror === 'true';
+      const label = active ? 'Return to Cute / Normal Mode' : 'Enter Horror Mode';
+      horrorButton.setAttribute('aria-label', label);
+      horrorButton.title = label;
+      horrorButton.querySelector('.visually-hidden').textContent = label;
+      horrorButton.setAttribute('aria-pressed', String(active));
+    }
+    try { if (localStorage.getItem('eil-horror') === 'true') document.documentElement.dataset.horror = 'true'; } catch (error) { /* Horror mode still works for this page view. */ }
+    updateHorrorButton();
+    horrorButton.addEventListener('click', () => {
+      const active = document.documentElement.dataset.horror !== 'true';
+      if (active) document.documentElement.dataset.horror = 'true'; else delete document.documentElement.dataset.horror;
+      try { localStorage.setItem('eil-horror', String(active)); } catch (error) { /* Keep mode selection for this page view. */ }
+      updateHorrorButton();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Place approved official artwork images in this folder.
