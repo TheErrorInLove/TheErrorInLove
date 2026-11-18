@@ -165,11 +165,14 @@ header, main, footer { position: relative; z-index: 2; }
 .button-fanart { background: var(--pink); color: var(--ink); box-shadow: 0 8px 28px rgba(255,139,182,.24); }
 .button-fanart:hover, .button-fanart:focus-visible { background: #fff8fa; color: #100b0e; }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-.fanart-card { overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.fanart-card { display: flex; flex-direction: column; overflow: hidden; margin: 0; border: 1px solid var(--line); background: var(--panel); }
 .fanart-placeholder { min-height: 280px; display: grid; place-items: center; padding: 20px; text-align: center; color: var(--pink); font-size: 1.2rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; background: radial-gradient(circle at 25% 25%, rgba(255,139,182,.25), transparent 33%), linear-gradient(145deg, #31101d, #171014 75%); }
+.fanart-image-link { display: block; background: #080608; }
+.fanart-artwork { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: contain; }
 .fanart-card:nth-child(2) .fanart-placeholder { background: radial-gradient(circle at 75% 24%, rgba(237,49,88,.25), transparent 34%), linear-gradient(35deg, #211019, #39101f); }
 .fanart-card:nth-child(3) .fanart-placeholder { background: radial-gradient(circle at 45% 80%, rgba(255,139,182,.2), transparent 34%), linear-gradient(150deg, #3c1425, #130d11); }
-.fanart-caption { padding: 16px 18px; color: var(--muted); font-size: .9rem; }
+.fanart-caption { flex: 1; padding: 16px 18px; color: var(--muted); font-size: .9rem; }
+.fanart-caption span { display: block; }
 .fanart-caption strong { display: block; color: var(--paper); margin-bottom: 3px; }
 .fanart-character-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .folder-card { min-width: 0; padding: 20px; border: 1px solid var(--line); background: var(--panel); }
