@@ -50,9 +50,10 @@
     .plot-card strong { color: var(--pink); font-size: .76rem; letter-spacing: .2em; text-transform: uppercase; }
     .plot-card p { max-width: 760px; margin-bottom: 0; font-size: clamp(1.15rem, 2.4vw, 1.65rem); }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { overflow: hidden; background: var(--panel); border: 1px solid var(--line); }
-    .portrait { min-height: 250px; display: grid; place-items: center; background: linear-gradient(145deg, #3a1423, #1a1015 70%); color: rgba(255,139,182,.75); font-size: 3rem; font-weight: 900; letter-spacing: -.08em; }`n    .card img.portrait { display: block; width: 100%; height: auto; min-height: 0; object-fit: contain; }
-    .card-body { padding: 20px; }
+    .card { display: flex; flex-direction: column; overflow: hidden; background: var(--panel); border: 1px solid var(--line); }
+    .portrait { min-height: 250px; display: grid; place-items: center; background: linear-gradient(145deg, #3a1423, #1a1015 70%); color: rgba(255,139,182,.75); font-size: 3rem; font-weight: 900; letter-spacing: -.08em; }
+    .card img.portrait { display: block; width: 100%; height: auto; min-height: 0; aspect-ratio: auto; object-fit: contain; }
+    .card-body { padding: 20px; flex: 1; }
     .card h3 { margin: 0 0 7px; font-size: 1.25rem; text-transform: uppercase; }
     .card p { margin: 0; color: var(--muted); }
     .episode-list { border-top: 1px solid var(--line); }
